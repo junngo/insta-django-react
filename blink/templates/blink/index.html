@@ -1,0 +1,33 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'blink/css/style.css' %}">
+
+<h1>We can speak english fluently.</h1>
+<h1>We just need to have time 3 months.</h1>
+
+<h2>Now Start to study language</h2>
+
+
+<form action="{% url 'blink:detail' %}" method="post">
+    {% csrf_token %}
+    <h3>Choice Type</h3>
+    <input type="radio" name="choice" id="type_0" value="0">
+    <label for="type_0">Today Learning</label><br>
+    <input type="radio" name="choice" id="type_1" value="1">
+    <label for="type_1">Blink</label><br>
+    <input type="radio" name="choice" id="type_2" value="2">
+    <label for="type_2">Just Review</label><br>
+
+    <h3>Choice Range</h3>
+    <div>
+        <input type="range" id="id_min" name="min"
+            min="0" max="500" value="0" step="10">
+        <label for="min">MIN</label>
+    </div>
+    
+    <div>
+        <input type="range" id="id_max" name="max" 
+            min="0" max="500" value="500" step="10">
+        <label for="max">MAX</label>
+    </div>
+    <input type="submit" value="Start">
+</form>

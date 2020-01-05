@@ -1,0 +1,9 @@
+{% if latest_sentence_list %}
+    <ul>
+    {% for sentence in latest_sentence_list %}
+        <li>{{ sentence.sentence_eng }}  {{ sentence.sentence_ko }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No Data</p>
+{% endif %}
