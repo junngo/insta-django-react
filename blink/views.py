@@ -1,3 +1,4 @@
+from random import shuffle
 from django.http import Http404
 from django.shortcuts import render
 
@@ -13,14 +14,17 @@ def index(request):
 def detail(request):
 
     if request.method == 'POST':
-        print(request.POST['choice'])
+        learning_method = request.POST['choice']
         start_sentence = request.POST['min']
         end_sentence = request.POST['max']
 
-        latest_sentence_list = Sentence.objects.filter(no__range=(start_sentence, end_sentence))
-        context = {'latest_sentence_list': latest_sentence_list}
+        sentence_queryset = Sentence.objects.filter(no__range=(start_sentence, end_sentence))
+        sentence_list = list(sentence_queryset);
+
+        # shuffle sentence for review
+        if learning_method == 'blink_review':
+            shuffle(sentence_list)
+
+        context = {'sentence_list': sentence_list, 'learning_method':learning_method}
 
         return render(request, 'blink/detail.html', context)
-
-    elif request.method == 'get':
-        pass

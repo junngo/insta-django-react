@@ -1,9 +1,28 @@
-{% if latest_sentence_list %}
-    <ul>
-    {% for sentence in latest_sentence_list %}
-        <li>{{ sentence.sentence_eng }}  {{ sentence.sentence_ko }}</li>
+{% load static %}
+<script>
+    let sentence_ko = '';
+    let sentence_eng = '';
+    let learning_method = "{{ learning_method }}";
+</script>
+
+{% if sentence_list %}
+    {% for sentence in sentence_list %}
+        <script>
+            sentence_ko = "{{ sentence.sentence_ko|safe }}";
+            sentence_eng = "{{ sentence.sentence_eng|safe }}";
+        </script>
     {% endfor %}
-    </ul>
+
+    <div>
+        {{ learning_method }}
+    </div>
+    <div class="sentence_list">
+        <div class="sentence_ko"></div>
+        <div class="sentence_eng"></div>
+    </div>
+
 {% else %}
     <p>No Data</p>
 {% endif %}
+
+<script type="text/javascript" src="{% static 'blink/js/blink_detail.js' %}"></script>
