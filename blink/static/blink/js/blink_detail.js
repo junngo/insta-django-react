@@ -2,10 +2,40 @@ const sentence_list = document.querySelector(".sentence_list"),
     html_sentence_ko = sentence_list.querySelector(".sentence_ko"),
     html_sentence_eng = sentence_list.querySelector(".sentence_eng");
 
-// To-Do
-// 1. shuffle
-// 2. settime
-console.log(sentence_json)
+function shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
 
-html_sentence_ko.innerText = '1234';
-html_sentence_eng.innerText = '5671';
+    return a;
+}
+
+function clearSentence() {
+    html_sentence_ko.innerText = '';
+    html_sentence_eng.innerText = '';
+}
+
+function delay(ms) {
+    return new Promise(res => setTimeout(res, ms));
+}
+
+async function printSentence(sentence) {
+    html_sentence_ko.innerText = sentence.fields.sentence_ko;
+    await delay(130 * sentence.fields.sentence_eng.length);
+
+    html_sentence_eng.innerText = sentence.fields.sentence_eng;
+    await delay(4000);
+}
+
+async function init() {
+
+    await shuffle(sentence_json);
+
+    for (let i = 0; i < sentence_json.length; i++) {
+        clearSentence();
+        await printSentence(sentence_json[i]);
+    }
+}
+
+init();
