@@ -1,18 +1,10 @@
 {% load static %}
 <script>
-    let sentence_ko = '';
-    let sentence_eng = '';
+    let sentence_json = {{ sentence_list|safe }};
     let learning_method = "{{ learning_method }}";
 </script>
 
 {% if sentence_list %}
-    {% for sentence in sentence_list %}
-        <script>
-            sentence_ko = "{{ sentence.sentence_ko|safe }}";
-            sentence_eng = "{{ sentence.sentence_eng|safe }}";
-        </script>
-    {% endfor %}
-
     <div>
         {{ learning_method }}
     </div>
