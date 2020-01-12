@@ -23,7 +23,11 @@ def detail(request):
 
         data = models.Sentence.objects.filter(no__range=(start_sentence, end_sentence))
         response = serialize('json', data, cls=MyJSONEncoder)
-        context = {'sentence_list': response, 'learning_method':learning_method}
+        context = {'sentence_list': response,
+                    'learning_method': learning_method,
+                    'start_sentence': start_sentence,
+                    'end_sentence': end_sentence
+                    }
 
         return render(request, 'blink/detail.html', context)
 

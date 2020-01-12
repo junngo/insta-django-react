@@ -10,7 +10,7 @@
 <form action="{% url 'blink:detail' %}" method="post">
     {% csrf_token %}
     <h3>Choice Type</h3>
-    <input type="radio" name="choice" id="type_0" value="blink_nomal">
+    <input type="radio" name="choice" id="type_0" value="blink_nomal" checked>
     <label for="type_0">Today Learning</label><br>
     <input type="radio" name="choice" id="type_1" value="blink_blink">
     <label for="type_1">Blink</label><br>

@@ -1,20 +1,28 @@
 {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'blink/css/detail.css' %}">
+
 <script>
     let sentence_json = {{ sentence_list|safe }};
     let learning_method = "{{ learning_method }}";
 </script>
 
 {% if sentence_list %}
-    <div>
-        {{ learning_method }}
-    </div>
-    <div class="sentence_list">
-        <div class="sentence_ko"></div>
-        <div class="sentence_eng"></div>
+    <div id="wrap">
+        <div id="method">
+            {{ learning_method }}
+        </div>
+        <div class="sentence_list">
+            <div class="sentence_ko"></div>
+            <div class="sentence_eng"></div>
+        </div>
     </div>
 
 {% else %}
     <p>No Data</p>
 {% endif %}
+
+<div> {{ start_sentence }} </div>
+<div> {{ end_sentence }} </div>
+<a href="{% url 'blink:index' %}"> Back to the Blink site</a>
 
 <script type="text/javascript" src="{% static 'blink/js/blink_detail.js' %}"></script>

@@ -1,0 +1,17 @@
+#wrap { width: 1000px; 
+        height: 500px; 
+        margin: 0 auto; 
+        text-align: center; 
+    }
+
+#method {
+    margin-bottom: 100px;
+}
+
+.sentence_list {
+    font-size: 50px;
+}
+
+.sentence_eng {
+    margin-top: 30px;
+}
