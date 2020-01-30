@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 
 
 console.log(store.getState());
+store.dispatch({ type: "HELLO"});
 
 ReactDOM.render(
     <Provider store={store}>
