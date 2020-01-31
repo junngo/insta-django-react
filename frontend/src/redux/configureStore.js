@@ -5,6 +5,7 @@ import { createBrowserHistory } from "history";
 import { composeWithDevTools } from "redux-devtools-extension";
 
 import users from "redux/modules/users";
+import { i18nState } from "redux-i18n";
 
 
 const history = createBrowserHistory();
@@ -19,7 +20,8 @@ if(env === "development") {
 
 const reducer = combineReducers({
   users,
-  router: connectRouter(history)
+  router: connectRouter(history),
+  i18nState
 });
 
 let store;
