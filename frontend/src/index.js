@@ -7,8 +7,8 @@ import { translations } from "translations";
 import I18n from "redux-i18n";
 
 
-import App from 'App';
-import 'index.css';
+import App from 'components/App';
+import 'index.scss';
 
 console.log(store.getState());
 store.dispatch({ type: "HELLO"});
