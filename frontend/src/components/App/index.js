@@ -1,10 +1,12 @@
 import React from 'react';
-import 'components/App/styles.scss';
+import './styles.scss';
+
+import Footer from '../Footer';
 
 function App() {
   return (
     <div className="App">
-      hello world
+      <Footer/>
     </div>
   );
 }
