@@ -3,8 +3,7 @@ import thunk from "redux-thunk";
 import { connectRouter, routerMiddleware } from "connected-react-router";
 import { createBrowserHistory } from "history";
 import { composeWithDevTools } from "redux-devtools-extension";
-
-import users from "redux/modules/users";
+import user from "redux/modules/user";
 import { i18nState } from "redux-i18n";
 
 
@@ -19,7 +18,7 @@ if(env === "development") {
 }
 
 const reducer = combineReducers({
-  users,
+  user,
   router: connectRouter(history),
   i18nState
 });
