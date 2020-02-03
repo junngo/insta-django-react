@@ -1,0 +1,42 @@
+@import "../../config/variables";
+
+.form-component {
+    display: flex;
+    flex-direction: column;
+    .form {
+        display: flex;
+        flex-direction: column;
+        .text-input {
+            border: 1px solid #efefef;
+            border-radius: 3px;
+        }
+    }
+    .divider {
+        text-transform: uppercase;
+        color: $dark-grey;
+        font-weight: 600;
+        margin: 20px 0;
+        margin-bottom: 20px;
+        position: relative;
+        &:before {
+            content: "";
+            width: 42%;
+            position: absolute;
+            background-color: $dark-grey;
+            height: 1px;
+            left: 0;
+            top: 6px;
+            opacity: 0.8;
+        }
+        &:after {
+            content: "";
+            width: 42%;
+            position: absolute;
+            background-color: $dark-grey;
+            height: 1px;
+            right: 0;
+            top: 6px;
+            opacity: 0.8;
+        }
+    }
+}
