@@ -10,6 +10,7 @@
     font-weight: 600;
     text-transform: uppercase;
     font-size: $small-font-size;
+    margin-top: 55px;
     margin-bottom: 55px;
     flex-wrap: wrap;
     @include breakpoint(mobileonly) {
