@@ -1,0 +1,35 @@
+msgid ""
+msgstr ""
+"Language: kr"
+
+#: src/components/AuthForms/index.js
+msgid "Username"
+msgstr "사용자 이름"
+
+#: src/components/AuthForms/index.js
+msgid "Password"
+msgstr "패스워드"
+
+#: src/components/AuthForms/index.js
+msgid "Log in"
+msgstr "로그인"
+
+#: src/components/AuthForms/index.js
+msgid "Log in with Facebook"
+msgstr "페이스북 로그인"
+
+#: src/components/AuthForms/index.js
+msgid "Forgot password?"
+msgstr "패스워드를 잊어버렸나요?"
+
+#: src/components/Footer/index.js
+msgid "About Me"
+msgstr "나에 대해서"
+
+#: src/components/Footer/index.js
+msgid "Blog"
+msgstr "블로그"
+
+#: src/components/Footer/index.js
+msgid "Language"
+msgstr "언어"
