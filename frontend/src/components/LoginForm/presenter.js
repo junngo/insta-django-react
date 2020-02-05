@@ -5,16 +5,22 @@ import formStyles from "shared/formStyles.scss";
 
 export const LoginForm = (props, context) => (
   <div className="form-component">
-    <form className="form">
-        <input 
-            type="text" 
-            placeholder={context.t("Username")} 
-            className="text-input" 
+    <form className="form"  onSubmit={props.handleSubmit}>
+        <input
+            type="text"
+            placeholder={context.t("Username")}
+            className="text-input"
+            onChange={props.handleInputChange}
+            name="username"
+            value={props.usernameValue}
         />
         <input
             type="password"
             placeholder={context.t("Password")}
             className="text-input"
+            onChange={props.handleInputChange}
+            name="password"
+            value={props.passwordValue}
         />
         <input 
             type="submit" 
@@ -29,7 +35,7 @@ export const LoginForm = (props, context) => (
             fontSize="20px"
             color="#385185" 
         /> 
-      {context.t("Log in with Facebook")}
+        {context.t("Log in with Facebook")}
     </span>
     <span className="forgot-link">{context.t("Forgot password?")}</span>
   </div>
@@ -37,6 +43,13 @@ export const LoginForm = (props, context) => (
 
 LoginForm.contextTypes = {
   t: PropTypes.func.isRequired
+};
+
+LoginForm.propTypes = {
+    handleInputChange: PropTypes.func.isRequired,
+    usernameValue: PropTypes.string.isRequired,
+    passwordValue: PropTypes.string.isRequired,
+    handleSubmit: PropTypes.func.isRequired
 };
 
 export default LoginForm;
