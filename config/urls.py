@@ -5,9 +5,10 @@ from django.contrib import admin
 from django.views.generic import TemplateView
 from django.views import defaults as default_views
 from rest_framework_jwt.views import obtain_jwt_token
+from honey_lang import views
 
 urlpatterns = [
-    path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
+    # path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
     path(
         "about/", TemplateView.as_view(template_name="pages/about.html"), name="about"
     ),
@@ -20,6 +21,9 @@ urlpatterns = [
     path("users/", include("honey_lang.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
+
+    # catch-all-url
+    path("", views.ReactAppView.as_view()),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
