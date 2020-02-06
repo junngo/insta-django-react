@@ -12,7 +12,8 @@ class Container extends Component {
     };
 
     static propTypes = {
-        facebookLogin: PropTypes.func.isRequired
+        facebookLogin: PropTypes.func.isRequired,
+        createAccount: PropTypes.func.isRequired
     };
 
     render() {
@@ -39,9 +40,12 @@ class Container extends Component {
     };
 
     _handleSubmit = event => {
+        const { username, password, email } = this.state;
+        const { createAccount } = this.props;
+
         event.preventDefault();
-        console.log(this.state);
-        //to-do: reduex here
+
+        createAccount(username, password, email);
     };
 
     _handleFacebookLogin = response => {
