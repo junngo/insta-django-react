@@ -12,31 +12,43 @@ export const SignupForm = props => (
         Facebook
     </button>
     <span className="divider">or</span>
-    <form className="form">
-        <input 
-            type="email" 
-            placeholder="Email" 
-            className="text-input" 
-        />
-        <input 
-            type="text" 
-            placeholder="Full Name" 
-            className="text-input" 
+    <form className="form" onSubmit={props.handleSubmit}>
+        <input
+            type="email"
+            placeholder="Email"
+            className="text-input"
+            onChange={props.handleInputChange}
+            name="email"
+            value={props.emailValue}
         />
         <input
-            type="username"
+            type="text"
+            placeholder="Full Name"
+            className="text-input"
+            onChange={props.handleInputChange}
+            name="fullname"
+            value={props.fullnameValue}
+        />
+        <input
+            type="text"
             placeholder="Username"
             className="text-input"
+            onChange={props.handleInputChange}
+            name="username"
+            value={props.usernameValue}
         />
         <input
             type="password"
             placeholder="Password"
             className="text-input"
+            onChange={props.handleInputChange}
+            name="password"
+            value={props.passwordValue}
         />
-        <input 
-            type="submit" 
-            value="Sign up" 
-            className="button" 
+        <input
+            type="submit"
+            value="Sign up"
+            className="button"
         />
     </form>
     <p>
