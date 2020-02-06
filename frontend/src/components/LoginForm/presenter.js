@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import FacebookLogin from "react-facebook-login";
 import formStyles from "shared/formStyles.scss";
 
+
 export const LoginForm = (props, context) => (
   <div className="form-component">
     <form className="form"  onSubmit={props.handleSubmit}>
@@ -32,7 +33,7 @@ export const LoginForm = (props, context) => (
     <span className="divider">or</span>
     <FacebookLogin
         appId="178190336837752"
-        autoLoad={true}
+        autoLoad={false}
         fields="name,email,picture"
         callback={props.handleFacebookLogin}
         cssClass="facebook-link"
