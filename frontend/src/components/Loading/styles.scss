@@ -1,0 +1,17 @@
+@import "../../config/variables";
+
+.container {
+    .spinner {
+        height: 50px;
+        animation: spinner 2s steps(10) infinite;
+    }
+}
+
+@keyframes spinner {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

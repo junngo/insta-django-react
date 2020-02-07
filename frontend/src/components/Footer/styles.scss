@@ -6,7 +6,7 @@
     margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     font-weight: 600;
     text-transform: uppercase;
     font-size: $small-font-size;
@@ -17,6 +17,7 @@
       justify-content: center;
     }
     .column {
+        padding: 0 50px;
         margin-bottom: 15px;
         @include breakpoint(mobileonly) {
             margin-bottom: 0;
