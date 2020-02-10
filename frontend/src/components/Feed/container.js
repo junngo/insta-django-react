@@ -6,6 +6,11 @@ class Container extends Component {
         loading: true
     };
 
+    componentDidMount() {
+        const { getFeed } = this.props;
+        getFeed();
+    }
+
     render() {
         return <Feed {...this.state} />;
     }
