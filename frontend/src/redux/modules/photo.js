@@ -28,7 +28,9 @@ function getFeed() {
             }
             return response.json();
         })
-        .then(json => dispatch(setFeed(json)));
+        .then(json => {
+            return dispatch(setFeed(json));
+        });
     };
 }
 

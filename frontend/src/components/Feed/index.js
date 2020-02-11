@@ -5,6 +5,7 @@ import Container from "./container";
 
 const mapStateToProps = (state, ownProps) => {
     const { photo: { feed } } = state;
+
     return {
         feed
     };
