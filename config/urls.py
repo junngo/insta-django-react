@@ -21,6 +21,7 @@ urlpatterns = [
     path("users/", include("honey_lang.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
+    path("images/", include("honey_lang.images.urls", namespace="images")),
 
     # catch-all-url
     path("", views.ReactAppView.as_view()),

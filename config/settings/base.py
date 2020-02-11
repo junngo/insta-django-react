@@ -79,11 +79,14 @@ THIRD_PARTY_APPS = [
     "rest_auth",
     "rest_auth.registration",
     "corsheaders",  # To accept requests from React
+    "taggit",  # Tags for the photos
+    "taggit_serializer",  # tag serializer
 ]
 
 LOCAL_APPS = [
     "honey_lang.users.apps.UsersConfig",
     # Your stuff: custom apps go here
+    "honey_lang.images.apps.ImagesConfig",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -300,3 +303,5 @@ CORS_ORIGIN_ALLOW_ALL = True
 JWT_AUTH = {
     'JWT_VERIFY_EXPIRATION': False
 }
+
+TAGGIT_CASE_INSENSITIVE = True
