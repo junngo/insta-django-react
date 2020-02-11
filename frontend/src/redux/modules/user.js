@@ -50,16 +50,15 @@ function facebookLogin(access_token) {
         fetch("/users/login/facebook/", {
             method: "POST",
             headers: {
-            "Content-Type": "application/json"
+                "Content-Type": "application/json",
             },
             body: JSON.stringify({
-            access_token
+                access_token
             })
         })
         .then(response => response.json())
         .then(json => {
             if (json.token) {
-                localStorage.setItem("jwt", json.token);
                 dispatch(saveToken(json.token));
             }
         })
@@ -91,7 +90,8 @@ function usernameLogin(username, password) {
 
 // initial state
 const initialState = {
-    isLoggedIn: localStorage.getItem("jwt") ? true : false
+    isLoggedIn: localStorage.getItem("jwt") ? true : false,
+    token: localStorage.getItem("jwt")
 };
 
 // reducer
@@ -109,14 +109,16 @@ function reducer(state = initialState, action) {
 // reducer functions
 function applySetToken(state, action) {
     const { token } = action;
+    localStorage.setItem("jwt", token);
     return {
         ...state,
         isLoggedIn: true,
-        token: token
+        token
     };
 }
 
 function applyLogout(state, action) {
+    localStorage.removeItem("jwt");
     return {
         isLoggedIn: false
     }

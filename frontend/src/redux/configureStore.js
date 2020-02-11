@@ -19,8 +19,8 @@ if(env === "development") {
 }
 
 const reducer = combineReducers({
-  photo,
   user,
+  photo,
   router: connectRouter(history),
   i18nState
 });
