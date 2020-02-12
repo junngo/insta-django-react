@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from rest_framework import status
 
 from . import models, serializers
+from honey_lang.users import serializers as user_serializers
 
 
 class Images(APIView):
@@ -33,3 +34,68 @@ class Images(APIView):
                                                 )
 
         return Response(serializer.data)
+
+
+class LikeImage(APIView):
+
+    def get(self, request, image_id, format=None):
+
+        likes = models.Like.objects.filter(image__id=image_id)
+        like_creators_ids = likes.values('creator_id')
+        users = user_models.User.objects.filter(id__in=like_creators_ids)
+
+        serializer = user_serializers.ListUserSerializer(users, many=True, context={"request":request})
+
+        return Response(data=serializer.data, status=status.HTTP_200_OK)
+
+    #If I have a variable named user_id on a URL, how can I use it?
+    def post(self, request, image_id, format=None):
+
+        user = request.user
+
+        try:
+            found_image = models.Image.objects.get(id=image_id)
+        except models.Image.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        try:
+            preexisting_like = models.Like.objects.get(
+                creator = user,
+                image = found_image
+            )
+
+            return Response(status=status.HTTP_304_NOT_MODIFIED)
+
+        except models.Like.DoesNotExist:
+            new_like = models.Like.objects.create(
+                creator = user,
+                image = found_image
+            )
+
+            new_like.save()
+
+            return Response(status=status.HTTP_201_CREATED)
+
+
+class UnLikeImage(APIView):
+
+    def delete(self, request, image_id, format=None):
+
+        user = request.user
+
+        try:
+            found_image = models.Image.objects.get(id=image_id)
+        except models.Image.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        try:
+            preexisting_like = models.Like.objects.get(
+                creator = user,
+                image = found_image
+            )
+            preexisting_like.delete()
+
+            return Response(status=status.HTTP_204_NO_CONTENT)
+
+        except models.Like.DoesNotExist:
+            return Response(status=status.HTTP_304_NOT_MODIFIED)
