@@ -20,4 +20,9 @@ urlpatterns = [
         views.UnLikeImage.as_view(),
         name='unlike_image'
     ),
+    path(
+        '<int:image_id>/comments/',
+        views.CommentOnImage.as_view(),
+        name='comment_image'
+    ),
 ]
