@@ -5,27 +5,30 @@ import PhotoActions from "components/PhotoActions";
 import PhotoComments from "components/PhotoComments";
 import TimeStamp from "components/TimeStamp";
 import CommentBox from "components/CommentBox";
+import UserList from "components/UserList";
 
 
 const FeedPhoto = (props, context) => {
     return (
         <div className="feed-photo">
-            <header>
+            <header className="header">
                 <img
+                    className="image"
                     src={props.creator.profile_image || require("images/no_profile.jpg")}
                     alt={props.creator.username}
                 />
-                <div>
-                    <span>{props.creator.username}</span>
-                    <span>{props.location}</span>
+                <div className="header-column">
+                    <span className="creator">{props.creator.username}</span>
+                    <span className="location">{props.location}</span>
                 </div>
             </header>
                 <img src={props.file} alt={props.caption} />
-            <div>
+            <div className="meta">
                 <PhotoActions
                     number={props.like_count}
                     isLiked={props.is_liked}
                     photoId={props.id}
+                    openLikes={props.openLikes}
                 />
                 <PhotoComments
                     caption={props.caption}
@@ -35,8 +38,15 @@ const FeedPhoto = (props, context) => {
                 <TimeStamp time={props.natural_time} />
                 <CommentBox photoId={props.id} />
             </div>
+            {props.seeingLikes && (
+                <UserList title={context.t("Likes")} closeLikes={props.closeLikes} />
+            )}
         </div>
     );
+};
+
+FeedPhoto.contextTypes = {
+    t: PropTypes.func.isRequired
 };
 
 FeedPhoto.propTypes = {
@@ -58,7 +68,10 @@ FeedPhoto.propTypes = {
         })
     ).isRequired,
     natural_time: PropTypes.string.isRequired,
-    is_liked: PropTypes.bool.isRequired
+    is_liked: PropTypes.bool.isRequired,
+    seeingLikes: PropTypes.bool.isRequired,
+    openLikes: PropTypes.func.isRequired,
+    closeLikes: PropTypes.func.isRequired
 };
 
 export default FeedPhoto;
