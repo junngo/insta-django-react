@@ -4,7 +4,7 @@ from rest_framework import status
 
 from . import models, serializers
 from honey_lang.users import serializers as user_serializers
-
+from honey_lang.users import models as user_models
 
 class Images(APIView):
 
