@@ -17,11 +17,15 @@ const Navigation = (props, context) => (
                 </Link>
             </div>
             <div className="column">
-                <input
-                    type="text"
-                    placeholder={context.t("Search")}
-                    className={"searchInput"}
-                />
+                <form method="post" onSubmit={props.onSubmit}>
+                    <input
+                        type="text"
+                        placeholder={context.t("Search")}
+                        className="search-input"
+                        value={props.value}
+                        onChange={props.onInputChange}
+                    />
+                </form>
             </div>
             <div className="column">
                 <div className="nav-icon">
