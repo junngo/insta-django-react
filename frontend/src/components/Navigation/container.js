@@ -1,9 +1,14 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import Navigation from "./presenter";
 
 class Container extends Component {
     state = {
         term: ""
+    };
+
+    static propTypes = {
+        goToSearch: PropTypes.func.isRequired
     };
 
     render() {
@@ -26,8 +31,11 @@ class Container extends Component {
 
     _onSubmit = event => {
         const { term } = this.state;
+        const { goToSearch } = this.props;
+
         event.preventDefault();
-        console.log(term);
+
+        goToSearch(term);
         this.setState({
             term: ""
         });

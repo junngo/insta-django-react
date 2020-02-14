@@ -56,6 +56,12 @@ const Navigation = (props, context) => (
     </div>
 );
 
+Navigation.propTypes = {
+    onInputChange: PropTypes.func.isRequired,
+    value: PropTypes.string.isRequired,
+    onSubmit: PropTypes.func.isRequired
+};
+
 Navigation.contextTypes = {
   t: PropTypes.func.isRequired
 };
