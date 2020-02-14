@@ -6,6 +6,7 @@ import Feed from "components/Feed";
 import Footer from 'components/Footer';
 import Auth from "components/Auth";
 import Navigation from "components/Navigation";
+import Explore from "components/Explore";
 
 
 const App = props => [
@@ -21,7 +22,7 @@ App.propTypes = {
 const PrivateRoutes = props => (
     <Switch>
         <Route key="1" exact path="/" component={Feed} />,
-        <Route key="2" path="/explore" render={() => "explore"} />
+        <Route key="2" path="/explore" component={Explore} />
     </Switch>
 );
 
