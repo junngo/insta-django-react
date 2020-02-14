@@ -5,6 +5,18 @@ from . import models
 from honey_lang.users import models as user_models
 
 
+class CountImageSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = models.Image
+        fields = (
+            'id',
+            'file',
+            'comment_count',
+            'like_count'
+        )
+
+
 class FeedUserSerializer(serializers.ModelSerializer):
 
     class Meta:

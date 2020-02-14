@@ -30,7 +30,7 @@ urlpatterns = [
         name='user_following'
     ),
     path(
-        'search/', 
+        'search/',
         views.Search.as_view(),
         name='user_search'
     ),

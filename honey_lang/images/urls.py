@@ -25,4 +25,9 @@ urlpatterns = [
         views.CommentOnImage.as_view(),
         name='comment_image'
     ),
+    path(
+        'search/',
+        views.Search.as_view(),
+        name='user_search'
+    ),
 ]
