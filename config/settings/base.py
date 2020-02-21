@@ -305,3 +305,7 @@ JWT_AUTH = {
 }
 
 TAGGIT_CASE_INSENSITIVE = True
+
+REST_AUTH_SERIALIZERS = {
+    'USER_DETAILS_SERIALIZER': 'honey_lang.users.serializers.UserProfileSerializer'
+}
