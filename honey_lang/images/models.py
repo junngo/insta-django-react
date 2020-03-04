@@ -33,6 +33,13 @@ class Image(TimeStampedModel):
     @property
     def natural_time(self):
         return naturaltime(self.created_at)
+    
+    @property
+    def is_vertical(self):
+        if self.file.width < self.file.height:
+            return True
+        else:
+            return False
 
 
     # representation
