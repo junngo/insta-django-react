@@ -14,6 +14,13 @@ SECRET_KEY = env(
 # ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1"]
 ALLOWED_HOSTS = ["*"]
 
+# DATABASE
+DATABASES = {
+    # "default": env.db("DATABASE_URL", default="postgres:///honey_lang")
+    "default": env.db("DATABASE_URL", default="postgres://postgres:root@localhost:5432/honey_lang")
+}
+DATABASES["default"]["ATOMIC_REQUESTS"] = True
+
 # CACHES
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#caches

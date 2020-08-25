@@ -42,11 +42,11 @@ LOCALE_PATHS = [ROOT_DIR.path("locale")]
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
-DATABASES = {
-    # "default": env.db("DATABASE_URL", default="postgres:///honey_lang")
-    "default": env.db("DATABASE_URL", default="postgres://postgres:root@localhost:5432/honey_lang")
-}
-DATABASES["default"]["ATOMIC_REQUESTS"] = True
+# DATABASES = {
+#     # "default": env.db("DATABASE_URL", default="postgres:///honey_lang")
+#     "default": env.db("DATABASE_URL", default="postgres://postgres:root@localhost:5432/honey_lang")
+# }
+# DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
 # URLS
 # ------------------------------------------------------------------------------
